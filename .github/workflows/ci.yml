@@ -64,6 +64,6 @@ jobs:
       - name: Check formatting with black
         run: black --check src/ tests/
       - name: Check imports with isort
-        run: isort --check-only src/ tests/
+        run: isort --check-only --profile black src/ tests/
       - name: Lint with flake8
         run: flake8 src/ tests/ --max-line-length=100 --ignore=E501,W503
