@@ -6,4 +6,6 @@ numpy
 scikit-learn
 xgboost
 shap
-black == 24.8.0 
+black == 24.8.0
+pytest
+pytest-cov
