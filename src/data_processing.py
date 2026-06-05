@@ -96,12 +96,12 @@ def handle_missing_values(df: pd.DataFrame) -> pd.DataFrame:
     for col in NUMERICAL_COLS:
         if col in df.columns and df[col].isnull().any():
             median_val = df[col].median()
-            df[col].fillna(median_val, inplace=True)
+            df[col] = df[col].fillna(median_val)
             logger.debug(f"Imputed {col} with median={median_val:.2f}")
     for col in CATEGORICAL_COLS:
         if col in df.columns and df[col].isnull().any():
             mode_val = df[col].mode()[0]
-            df[col].fillna(mode_val, inplace=True)
+            df[col] = df[col].fillna(mode_val)
             logger.debug(f"Imputed {col} with mode={mode_val}")
     missing_after = df.isnull().sum().sum()
     logger.info(f"Missing values: {missing_before} -> {missing_after}")
